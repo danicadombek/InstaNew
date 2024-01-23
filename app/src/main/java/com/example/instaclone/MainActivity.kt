@@ -13,16 +13,14 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.instaclone.auth.SignUpScreen
-import com.example.instaclone.main.NotificationMessage
-import com.example.instaclone.storage.StorageScreen
-import com.example.instaclone.ui.theme.InstaCloneTheme
 import com.example.instaclone.auth.LoginScreen
-import com.example.instaclone.main.BottomNavigationItem
-import com.example.instaclone.main.BottomNavigationMenu
+import com.example.instaclone.auth.SignUpScreen
 import com.example.instaclone.main.FeedScreen
 import com.example.instaclone.main.MyPostsScreen
+import com.example.instaclone.main.NotificationMessage
 import com.example.instaclone.main.SearchScreen
+import com.example.instaclone.storage.StorageScreen
+import com.example.instaclone.ui.theme.InstaCloneTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
