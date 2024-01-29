@@ -16,7 +16,6 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.instaclone.DestinationScreen
 import com.example.instaclone.IgViewModel
@@ -35,9 +34,6 @@ fun ProfileScreen(navController: NavController, vm: IgViewModel) {
         var name by rememberSaveable { mutableStateOf(userData?.name ?: "") }
         var userName by rememberSaveable { mutableStateOf(userData?.userName ?: "") }
         var bio by rememberSaveable { mutableStateOf(userData?.bio ?: "") }
-//        var imageUrl by rememberSaveable { mutableStateOf(userData?.imageUrl ?: "") }
-//        var id by rememberSaveable { mutableStateOf(userData?.userId ?: "") }
-//        var following by rememberSaveable { mutableStateOf(userData?.following ?: "") }
 
         ProfileContent(
             vm = vm,
