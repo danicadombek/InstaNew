@@ -18,6 +18,7 @@ import com.example.instaclone.auth.SignUpScreen
 import com.example.instaclone.main.FeedScreen
 import com.example.instaclone.main.MyPostsScreen
 import com.example.instaclone.main.NotificationMessage
+import com.example.instaclone.auth.ProfileScreen
 import com.example.instaclone.main.SearchScreen
 import com.example.instaclone.storage.StorageScreen
 import com.example.instaclone.ui.theme.InstaCloneTheme
@@ -50,6 +51,7 @@ sealed class DestinationScreen(val route: String) {
     object Feed: DestinationScreen("feed")
     object Search: DestinationScreen("search")
     object MyPosts: DestinationScreen("mypost")
+    object Profile: DestinationScreen("profile")
 }
 
 @Composable
@@ -77,6 +79,9 @@ fun InstagramApp() {
         }
         composable(DestinationScreen.MyPosts.route) {
             MyPostsScreen(navController = navController, vm = vm)
+        }
+        composable(DestinationScreen.Profile.route) {
+            ProfileScreen(navController = navController, vm = vm)
         }
     }
 }

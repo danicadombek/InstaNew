@@ -27,8 +27,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import coil.annotation.ExperimentalCoilApi
+import coil.compose.AsyncImagePainter
 import coil.compose.ImagePainter
+import coil.compose.rememberAsyncImagePainter
 import coil.compose.rememberImagePainter
+import coil.request.ImageRequest
 import coil.transform.CircleCropTransformation
 import com.example.instaclone.DestinationScreen
 import com.example.instaclone.IgViewModel
@@ -84,24 +87,24 @@ fun CommonImage(
     modifier: Modifier = Modifier,
     contentScale: ContentScale = ContentScale.Crop
 ) {
-    val painter = rememberImagePainter(
-        data = data,
-        builder = {
-            transformations(CircleCropTransformation()) // Optional: Transformations
-        }
-    )
+    val painter = // Optional: Transformations
+        rememberAsyncImagePainter(
+            ImageRequest.Builder(LocalContext.current).data(data = data).apply(block = fun ImageRequest.Builder.() {
+                transformations(CircleCropTransformation()) // Optional: Transformations
+            }).build()
+        )
 
     Image(
         painter = painter,
         contentDescription = "",
         modifier = modifier.graphicsLayer(
-            scaleX = if (painter.state is ImagePainter.State.Success) 1f else 0.8f,
-            scaleY = if (painter.state is ImagePainter.State.Success) 1f else 0.8f
+            scaleX = if (painter.state is AsyncImagePainter.State.Success) 1f else 0.8f,
+            scaleY = if (painter.state is AsyncImagePainter.State.Success) 1f else 0.8f
         ),
         contentScale = contentScale
     )
 
-    if (painter.state is ImagePainter.State.Loading) {
+    if (painter.state is AsyncImagePainter.State.Loading) {
         CommonProgressSpinner()
     }
 }

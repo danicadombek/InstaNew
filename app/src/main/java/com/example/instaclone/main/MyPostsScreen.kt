@@ -21,11 +21,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.instaclone.DestinationScreen
 import com.example.instaclone.IgViewModel
 import com.example.instaclone.R
 
@@ -77,7 +79,7 @@ fun MyPostsScreen(navController: NavController, vm: IgViewModel) {
                 Text(text = userNameDisplay)
                 Text(text = userData?.bio ?: "")
             }
-            OutlinedButton(onClick = {  },
+            OutlinedButton(onClick = { navigateTo(navController, DestinationScreen.Profile) },
                 modifier = Modifier
                     .padding(8.dp)
                     .fillMaxWidth(),
@@ -124,9 +126,10 @@ fun ProfileImage(imageUrl: String?, onClick: () -> Unit) {
         ) {
             Image(
                 painter = painterResource(id = R.drawable.ic_add),
+//                colorFilter = ColorFilter.tint(Color.Gray),
                 contentDescription = null,
-                modifier = Modifier
-                    .background(Color.Blue)
+//                modifier = Modifier
+//                    .background(Color.Red)
             )
         }
     }
