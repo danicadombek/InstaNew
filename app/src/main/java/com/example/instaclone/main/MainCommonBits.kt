@@ -108,7 +108,6 @@ fun CommonImage(
     }
 }
 
-
 @Composable
 fun UserImageCard(
     userImage: String?,
@@ -143,5 +142,4 @@ fun CommonDivider() {
             .alpha(0.3f)
             .padding(top = 8.dp, bottom = 8.dp)
     )
-
 }
