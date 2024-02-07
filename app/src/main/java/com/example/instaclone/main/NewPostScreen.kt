@@ -1,5 +1,6 @@
 package com.example.instaclone.main
 
+import android.net.Uri
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -50,7 +51,7 @@ val imageUrl by remember { mutableStateOf(encodedUri) }
             Text(text = "Cancel", modifier = Modifier.clickable { navController.popBackStack() })
             Text(text = "Post", modifier = Modifier.clickable {
                 focusManager.clearFocus()
-                // Call vm
+                vm.onNewPost(Uri.parse(imageUrl), description, onPostSuccess = { navController.popBackStack()})
             })
         }
 
